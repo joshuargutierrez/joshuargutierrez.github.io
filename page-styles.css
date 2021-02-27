@@ -5,7 +5,6 @@ h1 {
 #header,
 #display-content {
     position: fixed;
-    width: 100vw;
     text-align: center;
     color: white;
     text-shadow: 1em -1em -1em black;
@@ -16,6 +15,7 @@ h1 {
     right: 0;
     left: 0;
     height: 12vh;
+    width: 100vw;
     background-color: rgba(32, 32, 32);
     background-color: rgba(32, 32, 32, 0.4);
     border-bottom: 0.1em outset black;
