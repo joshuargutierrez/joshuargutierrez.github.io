@@ -1,0 +1,28 @@
+h1 {
+    font-size: 2vw;
+}
+
+#header,
+#header-content {
+    position: fixed;
+    text-align: center;
+    color: white;
+    text-shadow: 1em -1em -1em black;
+}
+
+#header {
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 12vh;
+    width: 100vw;
+    background-color: rgba(32, 32, 32);
+    background-color: rgba(32, 32, 32, 0.4);
+    border-bottom: 0.1em outset black;
+    box-shadow: black;
+}
+
+#header-content {
+    width: 40vw;
+    left: 30vw;
+}
