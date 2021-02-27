@@ -20,4 +20,7 @@
     padding: 3vh 2vw 25vh 2vw;
     background-color: black;
     background-image: url(../images/main-background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
