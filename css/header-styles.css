@@ -4,8 +4,9 @@
     right: 0;
     left: 0;
     height: 25vh;
-    width: 100vw;
+    width: 100%;
     z-index: 33;
+    overflow: none;
     background-color: rgb(65, 65, 65);
     background-color: rgba(65, 65, 65, 0.4);
     background-image: url(../images/header-background.jpg);
