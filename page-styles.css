@@ -1,15 +1,11 @@
 #header {
     position: fixed;
-    /* Position fixed at top of page */
     top: 0;
     right: 0;
     left: 0;
     width: 100vw;
-    /* width is 100% of screen width */
     height: 9vh;
-    /* Height is 9% of screen height */
     background-color: rgba(64, 64, 64);
-    /* Default background color if rgba does not render */
     background-color: rgba(64, 64, 64, 0.4);
-    /* Header background color (0.6 opacity) */
+    border-bottom: 0.1em outset black;
 }
