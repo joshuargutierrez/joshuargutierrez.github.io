@@ -21,3 +21,8 @@ h1 {
     border-bottom: 0.1em outset black;
     box-shadow: black;
 }
+
+#header-content {
+    width: 40vw;
+    left: 30vw;
+}
