@@ -1,0 +1,31 @@
+#header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 25vh;
+    width: 100vw;
+    z-index: 33;
+    background-color: rgb(65, 65, 65);
+    background-color: rgba(65, 65, 65, 0.4);
+    background-image: url(../images/header-background.jpg);
+    border-bottom: 0.1vh groove darkgray;
+}
+
+#header-items {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.header-item {
+    position: relative;
+    display: inline-block;
+    margin: 3vh 4vw 3vh 4vw;
+    color: white !important;
+}
+
+.header-item * {
+    color: #C99789;
+    text-shadow: 0.06vh 0.1vh 0 white;
+}
