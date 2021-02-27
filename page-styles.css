@@ -1,3 +1,7 @@
+h1 {
+    font-size: 1.3em;
+}
+
 #header,
 #display-content {
     position: fixed;
@@ -17,5 +21,3 @@
     border-bottom: 0.1em outset black;
     box-shadow: black;
 }
-
-#display-content {}
