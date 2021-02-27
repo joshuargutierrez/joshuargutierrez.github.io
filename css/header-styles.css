@@ -4,24 +4,28 @@
     right: 0;
     left: 0;
     height: 25vh;
-    width: 100vw;
+    width: 100%;
+    min-width: 100% !important;
+    max-width: 100% !important;
     z-index: 33;
     background-color: rgb(65, 65, 65);
     background-color: rgba(65, 65, 65, 0.4);
     background-image: url(../images/header-background.jpg);
     border-bottom: 0.1vh groove darkgray;
+    overflow-x: hidden;
 }
 
 #header-items {
     display: inline-block;
     padding: 0;
     margin: 0;
+    margin-left: 1vw;
 }
 
 .header-item {
     position: relative;
     display: inline-block;
-    margin: 3vh 4vw 3vh 4vw;
+    margin: 3vh 4vw 5vh 3vw;
     color: white !important;
 }
 

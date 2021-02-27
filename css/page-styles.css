@@ -3,11 +3,25 @@
 @import url("footer-styles.css");
 * {
     text-decoration: none !important;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 body * {
     color: rgba(0, 0, 0, 0.6);
 }
+
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Hide scrollbar for IE, Edge and Firefox */
 
 h1,
 h2,
