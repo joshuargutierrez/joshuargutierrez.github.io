@@ -3,7 +3,7 @@ h1 {
 }
 
 #header,
-#display-content {
+#header-content {
     position: fixed;
     text-align: center;
     color: white;
