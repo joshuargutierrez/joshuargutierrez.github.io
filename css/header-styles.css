@@ -20,7 +20,7 @@
 
 #header-items {
     display: inline-block;
-    padding: 3vh 4vw 5vh 3vw;
+    padding: 0;
     margin: 0;
     margin-left: 1vw;
 }
@@ -28,6 +28,7 @@
 .header-item {
     position: relative;
     display: inline-block;
+    padding: 3vh 4vw 5vh 3vw;
     color: white !important;
 }
 
