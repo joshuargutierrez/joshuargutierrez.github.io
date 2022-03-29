@@ -1,97 +1,107 @@
-<!doctype html>
-<html>
-
-<head>
-    <title>RPG-Survival</title>
-    <link rel="stylesheet" type="text/css" href="css/page-styles.css" media="screen" />
-    <meta name="content" content="RPG-Survival">
-    <meta name="keywords" content="Unity Game, 3rd Person Game, RPG-Survival, Wave-Based Survival, Custom Hero">
-</head>
-
-<body>
-    <div id="header">
-        <div id="header-items">
-
-            <div class="header-item">
-                <a href="./index.html">
-                    <h4> Custom Hero <br> RPG Survival</h4>
-                </a>
-            </div>
-
-            <div class="header-item">
-                <a href="./problem.html">
-                    <h4> Problem <br>Statement</h4>
-                </a>
-            </div>
-
-            <div class="header-item">
-                <a href="./userstories.html">
-                    <h4> User <br>Stories</h4>
-                </a>
-            </div>
-
-            <div class="header-item">
-                <a href="./requirements.html">
-                    <h4> Requirements<br>&nbsp;</h4>
-                </a>
-            </div>
-
-            <div class="header-item">
-                <a href="./architecture.html">
-                    <h4> Architecture<br>&nbsp;</h4>
-                </a>
-            </div>
-
-            <div class="header-item">
-                <a href="./design.html">
-                    <h4> Design <br>&nbsp;</h4>
-                </a>
-
-            </div>
-
-            <div class="header-item">
-                <a href="./testreport.html">
-                    <h4> Test <br>Report</h4>
-                </a>
-            </div>
-
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | Platformer Demo</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+  </head>
+  <body>
+    <div id="unity-container" class="unity-desktop">
+      <canvas id="unity-canvas" width=960 height=600></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
         </div>
+      </div>
+      <div id="unity-warning"> </div>
+      <div id="unity-footer">
+        <div id="unity-webgl-logo"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">Platformer Demo</div>
+      </div>
     </div>
-    <div id="main">
-        <ul id="main-content">
-            <li>
-                <h2 class="description-header">Custom Hero RPG Survival</h2>
-            </li>
-            <li>
-                <h4 class="description">
-                    Choose Your Hero and Customize Your Build. Custom Hero RPG Survival is a Wave-Based survival
-                    <br> game built using Unity Engine. Every nth round will be a PVP (Fight for unique prizes). The
-                    <br> last person standing will be the Arena Champion!
-                </h4>
-            </li>
+    <script>
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+      var warningBanner = document.querySelector("#unity-warning");
 
-            <li>
-                <h2 class="description-header">This is a new header</h2>
-            </li>
-            <li>
-                <h4 class="description">
-                    Choose Your Hero and Customize Your Build. Custom Hero RPG Survival is a Wave-Based survival
-                    <br> game built using Unity Engine. Every nth round will be a PVP (Fight for unique prizes). The
-                    <br> last person standing will be the Arena Champion!
-                </h4>
-            </li>
+      // Shows a temporary message banner/ribbon for a few seconds, or
+      // a permanent error message on top of the canvas if type=='error'.
+      // If type=='warning', a yellow highlight color is used.
+      // Modify or remove this function to customize the visually presented
+      // way that non-critical warnings and error messages are presented to the
+      // user.
+      function unityShowBanner(msg, type) {
+        function updateBannerVisibility() {
+          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+        }
+        var div = document.createElement('div');
+        div.innerHTML = msg;
+        warningBanner.appendChild(div);
+        if (type == 'error') div.style = 'background: red; padding: 10px;';
+        else {
+          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+          setTimeout(function() {
+            warningBanner.removeChild(div);
+            updateBannerVisibility();
+          }, 5000);
+        }
+        updateBannerVisibility();
+      }
 
-        </ul>
-    </div>
+      var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/WebGL Builds.loader.js";
+      var config = {
+        dataUrl: buildUrl + "/WebGL Builds.data.gz",
+        frameworkUrl: buildUrl + "/WebGL Builds.framework.js.gz",
+        codeUrl: buildUrl + "/WebGL Builds.wasm.gz",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "Platformer Demo",
+        productVersion: "2.1.0",
+        showBanner: unityShowBanner,
+      };
 
-    <div id="footer">
-        <div id="footer-items">
-            <h3 class="footer-item"></h3>
+      // By default Unity keeps WebGL canvas render target size matched with
+      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
+      // Set this to false if you want to decouple this synchronization from
+      // happening inside the engine, and you would instead like to size up
+      // the canvas DOM size and WebGL render target sizes yourself.
+      // config.matchWebGLToCanvasSize = false;
 
-            <h3 class="footer-item"></h3>
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        container.className = "unity-mobile";
+        // Avoid draining fillrate performance on mobile devices,
+        // and default/override low DPI mode on mobile browsers.
+        config.devicePixelRatio = 1;
+        unityShowBanner('WebGL builds are not supported on mobile devices.');
+      } else {
+        canvas.style.width = "960px";
+        canvas.style.height = "600px";
+      }
+      loadingBar.style.display = "block";
 
-        </div>
-    </div>
-</body>
-
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+        }).then((unityInstance) => {
+          loadingBar.style.display = "none";
+          fullscreenButton.onclick = () => {
+            unityInstance.SetFullscreen(1);
+          };
+        }).catch((message) => {
+          alert(message);
+        });
+      };
+      document.body.appendChild(script);
+    </script>
+  </body>
 </html>
